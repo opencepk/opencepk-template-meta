@@ -1,0 +1,40 @@
+---
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions: read-all
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # fetch all history so that the pre-commit hooks can work properly
+
+      - name: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
+
+      - name: pre-commit-hook-skip-if-template-repo
+        run: |
+          if [[ -f .pre-commit-template-skip-hooks.sh ]];then
+            source .pre-commit-template-skip-hooks.sh
+          fi
+
+      - name: pre-commit-run
+        uses: pre-commit/action@v3.0.1
+        env:
+          SKIP: ${{ env.SKIP }}

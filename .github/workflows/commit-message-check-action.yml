@@ -1,0 +1,26 @@
+---
+name: commit-message-check-action
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  commit-message-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
+      - name: Check Commit Messages
+        # uses: ./commit-message-check-action
+        uses: opencepk/mirror-opencepk-module-ghactions-common/github-flow-check-commit-message@main
+        with:
+          commit-pattern: '^(feat|fix|build|breaking|chore|ci|docs|perf|refactor|revert|test)\/([\w-]+)*(:\s+)?(.+)?$'

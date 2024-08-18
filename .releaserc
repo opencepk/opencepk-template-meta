@@ -1,0 +1,34 @@
+{
+   "branches": [
+     "main"
+   ],
+   "plugins": [
+     [
+       "@semantic-release/commit-analyzer",
+       {
+         "preset": "conventionalcommits",
+         "parserOpts": {
+           "noteKeywords": ["breaking/api:", "breaking/api", "BREAKING CHANGE:", "BREAKING CHANGE", "BREAKING CHANGES"],
+           "headerPattern": "^(feat|fix|build|breaking|chore|ci|docs|perf|refactor|revert)\\/(.+):?(.*)$",
+           "headerCorrespondence": ["type", "scope", "subject"]
+         },
+         "releaseRules": [
+           {"type": "feat", "release": "minor"},
+           {"type": "fix", "release": "patch"},
+           {"type": "build", "release": "minor"},
+           {"type": "breaking", "release": "major"},
+           {"type": "chore", "release": "minor"},
+           {"type": "ci", "release": "minor"},
+           {"type": "docs", "release": "minor"},
+           {"type": "perf", "release": "minor"},
+           {"type": "refactor", "release": "minor"},
+           {"type": "revert", "release": "patch"},
+           {"type": "style", "release": "minor"},
+           {"type": "test", "release": "minor"}
+         ]
+       }
+     ],
+     "@semantic-release/release-notes-generator",
+     "@semantic-release/github"
+   ]
+ }

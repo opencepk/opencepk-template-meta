@@ -1,0 +1,28 @@
+---
+
+# ------------------------------
+# This file is in the assets directory until cycles are available to construct a proper commitlint config
+# ------------------------------
+
+name: commitlint
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: commitlint-run
+        uses: wagoid/commitlint-github-action@v6
+        with:
+          config: "@commitlint/config-conventional"
+          github-token: ${{ github.token }}
+          pull-request: true
