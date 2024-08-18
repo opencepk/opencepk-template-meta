@@ -24,7 +24,6 @@ jobs:
           python-version: '3.11'
 
       - name: Setup SSH Agent
-        if: "!contains(github.repository_owner, 'opencepk')"
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
