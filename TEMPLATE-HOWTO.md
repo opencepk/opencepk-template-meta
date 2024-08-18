@@ -46,7 +46,7 @@ It can also be used (forked) as the base for other CEPK Cloud Engineering Platfo
 ## Contributing
 
 If you notice any issues, concerns of possible improvements, please make a branch and pull request on this project.
-Or if you prefer get in touch with the @opencepk/tcx-platform-devops team.
+Or if you prefer get in touch with the @opencepk/opencepk-platform-devops team.
 
 
 When developing against this project - run the following command to ensure pre-commit hooks run successfully.
