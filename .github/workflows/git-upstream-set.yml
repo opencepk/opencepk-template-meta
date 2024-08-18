@@ -15,7 +15,7 @@ jobs:
           HEAD_REF: ${{ github.head_ref }}
         run: echo "BRANCH_NAME=${HEAD_REF}" >> "${GITHUB_ENV}"
       - name: create PR
-        uses: opencepk/mirror-opencepk-module-ghactions-common/git-upstream-set-create-pr@main
+        uses: opencepk/opencepk-module-ghactions-common/git-upstream-set-create-pr@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           excluded-repos: "opencepk/opencepk-template-base,anythingInFuture/repo-to-exclude"
@@ -30,6 +30,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: Check for PR Blockage
-        uses: opencepk/mirror-opencepk-module-ghactions-common/git-upstream-set-check-pr-block@main
+        uses: opencepk/opencepk-module-ghactions-common/git-upstream-set-check-pr-block@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

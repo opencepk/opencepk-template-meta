@@ -12,11 +12,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate branch name
-        uses: opencepk/mirror-opencepk-module-ghactions-common/github-flow-check-branch-name@main
+        uses: opencepk/opencepk-module-ghactions-common/github-flow-check-branch-name@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set PR title to branch name
-        uses: opencepk/mirror-opencepk-module-ghactions-common/github-flow-update-pr-title@main
+        uses: opencepk/opencepk-module-ghactions-common/github-flow-update-pr-title@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

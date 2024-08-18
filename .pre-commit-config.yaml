@@ -8,7 +8,7 @@ repos:
   # -----------------------------
   # Check if upstream and sync if necessary
   # -----------------------------
-  - repo: git@github.com:opencepk/mirror-opencepk-lib-shell-common.git
+  - repo: git@github.com:opencepk/opencepk-lib-shell-common.git
     rev: main
     hooks:
       - id: git-upstream-sync
@@ -17,7 +17,7 @@ repos:
   # -----------------------------
   # set up commit message hook
   # -----------------------------
-  - repo: git@github.com:opencepk/mirror-opencepk-lib-shell-common.git
+  - repo: git@github.com:opencepk/opencepk-lib-shell-common.git
     rev: main
     hooks:
       - id: setup-commit-msg-hook
@@ -26,7 +26,7 @@ repos:
   # -----------------------------
   # Replace placeholders in template files with values for your project
   # -----------------------------
-  - repo: git@github.com:opencepk/mirror-opencepk-lib-python-common.git
+  - repo: git@github.com:opencepk/opencepk-lib-python-common.git
     rev: main
     hooks:
       - id: find-and-replace-strings

@@ -29,6 +29,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run custom action
-        uses: opencepk/mirror-opencepk-module-ghactions-common/github-flow-update-release-notes@main
+        uses: opencepk/opencepk-module-ghactions-common/github-flow-update-release-notes@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
