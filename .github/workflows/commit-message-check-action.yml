@@ -21,6 +21,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
       - name: Check Commit Messages
         # uses: ./commit-message-check-action
-        uses: opencepk/opencepk-module-ghactions-common/github-flow-check-commit-message@main
+        uses: opencepk/opencepk-module-ghactions-common/github-flow-check-commit-message@fix/harde-codeded-repo
         with:
           commit-pattern: '^(feat|fix|build|breaking|chore|ci|docs|perf|refactor|revert|test)\/([\w-]+)*(:\s+)?(.+)?$'
