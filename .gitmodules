@@ -3,6 +3,6 @@
 	url = https://github.com/opencepk/opencepk-module-ghactions-common.git
 
 [submodule "modules/opencepk-lib-shell-common"]
-    path = modules/opencepk-lib-shell-common
-    url = https://github.com/opencepk/opencepk-lib-shell-common.git
+	path = modules/opencepk-lib-shell-common
+	url = https://github.com/opencepk/opencepk-lib-shell-common.git
 
