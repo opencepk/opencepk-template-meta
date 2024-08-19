@@ -22,4 +22,4 @@ jobs:
     - name: Run GitHub Update Gitmodules Action
       uses: opencepk/opencepk-module-ghactions-common/github-update-gitmodules@fix/update-gitmodules-action
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
