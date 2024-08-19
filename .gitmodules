@@ -1,4 +1,1 @@
 
-[submodule "modules/opencepk-lib-shell-common"]
-	path = modules/opencepk-lib-shell-common
-	url = https://github.com/opencepk/opencepk-lib-shell-common.git
