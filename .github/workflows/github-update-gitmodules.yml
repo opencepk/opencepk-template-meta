@@ -17,23 +17,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Determine repository organization
-        id: repo-info
-        run: echo "org=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
-
-      # - name: Run GitHub Update Gitmodules Action
-      #   uses: opencepk/opencepk-module-ghactions-common/github-update-gitmodules@fix/update-gitmodules-action
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run GitHub Update Gitmodules Action for opencepk
-        if: steps.repo-info.outputs.org == 'opencepk'
+      - name: Run GitHub Update Gitmodules Action
         uses: opencepk/opencepk-module-ghactions-common/github-update-gitmodules@fix/update-gitmodules-action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run GitHub Update Gitmodules Action for tucows
-        if: steps.repo-info.outputs.org != 'opencepk'
-        uses: tucowsinc/mirror-opencepk-module-ghactions-common/github-update-gitmodules@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
