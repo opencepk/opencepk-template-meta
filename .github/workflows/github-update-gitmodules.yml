@@ -35,7 +35,7 @@ jobs:
       - name: Run GitHub Update Gitmodules Action for tucows
         if: steps.repo-info.outputs.org != 'opencepk'
         # uses: tucowsinc/mirror-opencepk-module-ghactions-common/github-update-gitmodules@main
-        tucowsinc/mirror-opencepk-module-ghactions-common/github-flow-update-release-notes@main
+        uses: tucowsinc/mirror-opencepk-module-ghactions-common/github-flow-update-release-notes@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
