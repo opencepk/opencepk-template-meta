@@ -2,3 +2,12 @@
 [submodule "modules/opencepk-lib-shell-common"]
 	path = modules/opencepk-lib-shell-common
 	url = https://github.com/opencepk/opencepk-lib-shell-common.git
+[submodule "modules/opencepk-module-tf-github"]
+	path = modules/opencepk-module-tf-github
+	url = https://github.com/opencepk/opencepk-module-tf-github.git
+[submodule "modules/opencepk-lib-python-common"]
+	path = modules/opencepk-lib-python-common
+	url = https://github.com/opencepk/opencepk-lib-python-common.git
+[submodule "modules/opencepk-module-ghactions-common"]
+	path = modules/opencepk-module-ghactions-common
+	url = https://github.com/opencepk/opencepk-module-ghactions-common.git
