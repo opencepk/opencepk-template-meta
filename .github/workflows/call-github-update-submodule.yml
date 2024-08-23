@@ -1,11 +1,9 @@
-# File: .github/workflows/call-github-update-submodule.yml
+---
 name: call-github-update-submodule
-
 on:
   push:
     branches:
       - main
-
 jobs:
   call-github-update-submodule:
     runs-on: ubuntu-latest
