@@ -21,3 +21,4 @@ jobs:
         uses: opencepk/opencepk-module-ghactions-common/github-update-gitmodules@fix/update-gitmodules-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          repo: ${{ github.repository }}
