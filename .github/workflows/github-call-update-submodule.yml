@@ -1,5 +1,5 @@
 ---
-name: call-github-update-submodule
+name: github-call-update-submodule
 on:
   push:
     branches:
@@ -21,9 +21,12 @@ jobs:
 
       - name: Read patterns from file
         id: read_patterns
-        run: |
-          patterns=$(grep -v '^$' .github/META-REPO-PATTERNS | tr '\n' ',' | sed 's/,$//')
-          echo "patterns=$patterns" >> $GITHUB_ENV
+        uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@fix/update-gitmodules-action
+        with:
+          file: '.github/META-REPO-PATTERNS'
+          file_type: 'file'
+          separator: '/\r?\n/'
+          output_format: ','
 
       - name: Trigger reusable workflow via API
         uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@fix/update-gitmodules-action
@@ -33,11 +36,3 @@ jobs:
           workflow_id: 'github-update-gitmodules.yml'
           ref: 'main'
           inputs: '{"repo":"${{ github.repository }}", "patterns":"${{ env.patterns }}"}'
-
-      # - name: Trigger reusable workflow via API
-      #   run: |
-      #     curl -X POST \
-      #       -H "Accept: application/vnd.github.v3+json" \
-      #       -H "Authorization: token ${{ steps.get_workflow_token.outputs.token }}" \
-      #       -d '{"ref":"main", "inputs":{"repo":"${{ github.repository }}", "patterns":"${{ env.patterns }}"}}' \
-      #       https://api.github.com/repos/opencepk/opencepk-projects-hub/actions/workflows/github-update-gitmodules.yml/dispatches
