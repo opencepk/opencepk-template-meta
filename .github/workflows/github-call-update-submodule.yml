@@ -21,7 +21,7 @@ jobs:
 
       - name: Read patterns from file
         id: read_patterns
-        uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@fix/update-gitmodules-action
+        uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@main
         with:
           file: '.github/META-REPO-PATTERNS'
           file_type: 'file'
@@ -29,7 +29,7 @@ jobs:
           output_format: ','
 
       - name: Trigger reusable workflow via API
-        uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@fix/update-gitmodules-action
+        uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@main
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
           repo: 'opencepk/opencepk-projects-hub'
