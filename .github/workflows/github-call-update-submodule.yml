@@ -38,9 +38,9 @@ jobs:
         run: |
           if [ -z "${{ steps.read_patterns.outputs.output }}" ]; then
             echo "patterns is empty"
-            echo "::set-output name=should_trigger::false"
+            echo "should_trigger=false" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=should_trigger::true"
+            echo "should_trigger=true" >> $GITHUB_OUTPUT
           fi
         continue-on-error: true
 
