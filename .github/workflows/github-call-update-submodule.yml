@@ -38,10 +38,14 @@ jobs:
         run: |
           if [ -z "${{ steps.read_patterns.outputs.output }}" ]; then
             echo "patterns is empty"
-            exit 0
+            echo "::set-output name=should_trigger::false"
+          else
+            echo "::set-output name=should_trigger::true"
           fi
+        continue-on-error: true
 
       - name: Trigger reusable workflow via API
+        if: steps.check_patterns.outputs.should_trigger == 'true'
         uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@main
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
