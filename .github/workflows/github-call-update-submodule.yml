@@ -3,7 +3,9 @@ name: github-call-update-submodule
 on:
   push:
     branches:
-      - feat/test
+      - main
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
 jobs:
   call-github-update-submodule:
     runs-on: ubuntu-latest
@@ -23,10 +25,10 @@ jobs:
         id: read_patterns
         uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@main
         with:
-          file: '.github/META-REPO-PATTERNS'
-          file_type: 'file'
+          file: ".github/META-REPO-PATTERNS"
+          file_type: "file"
           separator: '/\r?\n/'
-          output_format: ','
+          output_format: ","
 
       - name: Print input values
         run: |
@@ -49,7 +51,7 @@ jobs:
         uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@main
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
-          repo: 'opencepk/opencepk-projects-hub'
-          workflow_id: 'github-update-gitmodules.yml'
-          ref: 'main'
+          repo: "opencepk/opencepk-projects-hub"
+          workflow_id: "github-update-gitmodules.yml"
+          ref: "main"
           inputs: '{"repo":"${{ github.repository }}", "patterns":"${{ steps.read_patterns.outputs.output }}"}'
