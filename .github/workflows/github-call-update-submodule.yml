@@ -3,7 +3,7 @@ name: github-call-update-submodule
 on:
   push:
     branches:
-      - main
+      - feat/test
 jobs:
   call-github-update-submodule:
     runs-on: ubuntu-latest
