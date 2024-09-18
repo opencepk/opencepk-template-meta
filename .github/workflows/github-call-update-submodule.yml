@@ -33,6 +33,14 @@ jobs:
           echo "repo: ${{ github.repository }}"
           echo "patterns: ${{ steps.read_patterns.outputs.output }}"
 
+      - name: Check if patterns is not empty
+        id: check_patterns
+        run: |
+          if [ -z "${{ steps.read_patterns.outputs.output }}" ]; then
+            echo "patterns is empty"
+            exit 0
+          fi
+
       - name: Trigger reusable workflow via API
         uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@main
         with:
@@ -40,4 +48,4 @@ jobs:
           repo: 'opencepk/opencepk-projects-hub'
           workflow_id: 'github-update-gitmodules.yml'
           ref: 'main'
-          inputs: '{"repo":"${{ github.repository }}", "patterns":"test"}'
+          inputs: '{"repo":"${{ github.repository }}", "patterns":"${{ steps.read_patterns.outputs.output }}"}'
