@@ -40,4 +40,4 @@ jobs:
           repo: 'opencepk/opencepk-projects-hub'
           workflow_id: 'github-update-gitmodules.yml'
           ref: 'main'
-          inputs: '{"repo":"${{ github.repository }}", "patterns":"${{ steps.read_patterns.outputs.output }}"}'
+          inputs: '{"repo":"${{ github.repository }}", "patterns":"test"}'
