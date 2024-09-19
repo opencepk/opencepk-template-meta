@@ -22,7 +22,7 @@ jobs:
 
       - name: Read and Stringify JSON Data
         id: read-and-stringify-json
-        uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@fix/update-gitmodules-action
+        uses: opencepk/opencepk-module-ghactions-common/read-and-stringify-json-action@main
         with:
           file: '.project-properties.json'
           file_type: 'json'
@@ -32,7 +32,7 @@ jobs:
           echo "JSON Data which will be sent: ${{ steps.read-and-stringify-json.outputs.output }}"
 
       - name: Trigger reusable workflow via API
-        uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@fix/update-gitmodules-action
+        uses: opencepk/opencepk-module-ghactions-common/trigger-workflow-action@main
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
           repo: 'opencepk/opencepk-projects-hub'
