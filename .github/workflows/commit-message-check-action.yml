@@ -18,9 +18,9 @@ jobs:
       - name: Setup SSH Agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
+          ssh-private-key: ${{ secrets.SSH_KEY_READONLY_ACCESS_TO_MODULES }}
       - name: Check Commit Messages
         # uses: ./commit-message-check-action
-        uses: opencepk/opencepk-module-ghactions-common/github-flow-check-commit-message@fix/harde-codeded-repo
+        uses: opencepk/opencepk-module-ghactions-common/github-flow-check-commit-message@main
         with:
           commit-pattern: '^(feat|fix|build|breaking|chore|ci|docs|perf|refactor|revert|test)\/([\w-]+)*(:\s+)?(.+)?$'
