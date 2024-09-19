@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     - cron: "0 0 * * *"
-  rkflow_dispatch:
+  workflow_dispatch:
 jobs:
   call-github-update-submodule:
     runs-on: ubuntu-latest
