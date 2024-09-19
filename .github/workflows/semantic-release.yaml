@@ -18,7 +18,7 @@ jobs:
       - name: Setup SSH Agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_ICE_MODULES_READONLY }}
+          ssh-private-key: ${{ secrets.SSH_KEY_READONLY_ACCESS_TO_MODULES }}
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         with:
