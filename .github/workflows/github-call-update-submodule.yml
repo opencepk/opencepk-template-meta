@@ -40,9 +40,9 @@ jobs:
         run: |
           if [ -z "${{ steps.read_patterns.outputs.output }}" ]; then
             echo "patterns is empty"
-            echo "should_trigger=false" >> $GITHUB_OUTPUT
+            echo "should_trigger=false" >> "$GITHUB_OUTPUT"
           else
-            echo "should_trigger=true" >> $GITHUB_OUTPUT
+            echo "should_trigger=true" >> "$GITHUB_OUTPUT"
           fi
         continue-on-error: true
 
